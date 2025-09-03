@@ -1,4 +1,3 @@
-cat > README.md << 'EOF'
 # Backend - QuizMaster 🎯
 
 This is the **backend service** for the QuizMaster application.  
