@@ -8,7 +8,7 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect("mongodb://localhost:27017/quizMaster")
+mongoose.connect("mongodb+srv://pranavsubburaj_db_user:123456Pranav@cluster0.vuifioz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
   .then(() => console.log("Connected to MongoDB"))
   .catch(err => console.log(err));
 
@@ -44,4 +44,4 @@ app.get("/users/leaderboard", async (_, res) => {
   }
 });
 
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Server running...`));
