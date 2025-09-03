@@ -13,7 +13,7 @@ mongoose.connect("mongodb+srv://pranavsubburaj_db_user:123456Pranav@cluster0.vui
   .catch(err => console.error("MongoDB connection error:", err));
 
 const userSchema = new mongoose.Schema({
-  name: { type: String, required: true, unique: true }, // 👈 unique
+  name: { type: String, required: true, unique: true }, 
   score: { type: Number, default: 0 },
 });
 
