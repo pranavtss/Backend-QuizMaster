@@ -8,18 +8,16 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 
-
 mongoose.connect("mongodb+srv://pranavsubburaj_db_user:123456Pranav@cluster0.vuifioz.mongodb.net/quizMaster?retryWrites=true&w=majority&appName=Cluster0")
   .then(() => console.log("Connected to MongoDB Atlas"))
   .catch(err => console.error("MongoDB connection error:", err));
 
 const userSchema = new mongoose.Schema({
-  name: { type: String, required: true },
+  name: { type: String, required: true, unique: true }, // 👈 unique
   score: { type: Number, default: 0 },
 });
 
 const User = mongoose.model("User", userSchema);
-
 
 app.post("/users/score", async (req, res) => {
   const { name, score } = req.body;
@@ -29,6 +27,7 @@ app.post("/users/score", async (req, res) => {
 
   try {
     let user = await User.findOne({ name });
+
     if (!user) {
       user = new User({ name, score });
     } else {
@@ -38,6 +37,9 @@ app.post("/users/score", async (req, res) => {
     await user.save();
     res.status(201).json({ message: "User score saved", user });
   } catch (err) {
+    if (err.code === 11000) {
+      return res.status(400).json({ message: "Username already exists" });
+    }
     res.status(500).json({ message: "Error saving score", error: err.message });
   }
 });
