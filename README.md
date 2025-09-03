@@ -17,8 +17,8 @@ The backend is built with **Node.js, Express, and MongoDB**.
 ---
 
 ##🌐Links and Deployment
-Frontend Repo: [quizMaster](https://github.com/pranavtss/quizMaster.git)
-Frontend Live (Vercel): [QuizMaster App](https://quiz-master-six-iota.vercel.app/)
+-Frontend Repo: [quizMaster](https://github.com/pranavtss/quizMaster.git)
+-Frontend Live (Vercel): [QuizMaster App](https://quiz-master-six-iota.vercel.app/)
 
 ---
 
