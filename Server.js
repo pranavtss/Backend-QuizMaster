@@ -10,8 +10,8 @@ app.use(express.json());
 
 
 mongoose.connect("mongodb+srv://pranavsubburaj_db_user:123456Pranav@cluster0.vuifioz.mongodb.net/quizMaster?retryWrites=true&w=majority&appName=Cluster0")
-  .then(() => console.log("✅ Connected to MongoDB Atlas"))
-  .catch(err => console.error("❌ MongoDB connection error:", err));
+  .then(() => console.log("Connected to MongoDB Atlas"))
+  .catch(err => console.error("MongoDB connection error:", err));
 
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
